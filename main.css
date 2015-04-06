@@ -1,5 +1,5 @@
 body{
-    width: 1800px;
+    width: 1900px;
     margin: auto;
 }
 .cats{
@@ -8,8 +8,17 @@ body{
     margin-bottom: 20px;
 }
 img:nth-child(3n+1){
-    margin-left: 50px;
+    margin-left: 60px;
 }
 .button{
     text-align: center;
+}
+img{
+    display: block;
+    float: left;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+.hidden{
+    display:none;
 }
