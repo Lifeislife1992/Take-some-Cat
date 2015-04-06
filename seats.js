@@ -3,7 +3,7 @@
  */
 alert("Найдите 3-х подряд счастливых котов");
 
-var cats = [false, true, false, true, true, true, false, true, false, false, false, true];
+var cats = [false, true, false, true, true, true, false, true, false, true, true, true];
 function findCat() {
     for ( var i=0; i < cats.length; i++) {
         if (cats[i]){
@@ -31,24 +31,83 @@ function takeCat() {
     }
     // Поиск веселых котов из всех
     for ( var i=0; i < cats.length; i++) {
-        // Проверка вселости кота
-        if (cats[i]) {
+        // Проверка веселости 3-х котов подряд
+        if (cats[i] && cats[i + 1] && cats[i + 2]) {
             selectCat = i;
-            document.getElementById("c" + i).src = "image/2.png";
             document.getElementById("c" + i).alt = "selected_cat";
             document.getElementById("c" + i).style.border = "2px solid green";
-            // Предлагается клинту выбор, взять ли кота
-            var accept = confirm("Кот " + (i + 1) + " - счастливый. Взять этого кота?");
-            // Если пользователь согласился, кресло бронируется и цикл останавливается
+            document.getElementById("c" + (i + 1)).src = "image/2.png";
+            document.getElementById("c" + (i + 1)).alt = "selected_cat";
+            document.getElementById("c" + (i + 1)).style.border = "2px solid green";
+            document.getElementById("c" + (i + 2)).src = "image/2.png";
+            document.getElementById("c" + (i + 2)).alt = "selected_cat";
+            document.getElementById("c" + (i + 2)).style.border = "2px solid green";
+            // Предлагается клинту выбор, взять ли 3-х котов
+            var accept = confirm("Коты " + (i + 1) + "-" + (i + 3) + " - счастливы. Взять этих котов?");
+            // Если пользователь согласился, кот бронируется и цикл останавливается
             if (accept){
                 break;
             }
             // Если пользователь отказался, меняем вид кота и продолжаем поиск
-            else{
+            else {
                 selectCat = -1;
                 document.getElementById("c" + i).src = "image/1.png";
                 document.getElementById("c" + i).alt = "fun_cat";
                 document.getElementById("c" + i).style.border = "2px solid red";
+                document.getElementById("c" + (i + 1)).src = "image/1.png";
+                document.getElementById("c" + (i + 1)).alt = "fun_cat";
+                document.getElementById("c" + (i + 1)).style.border = "2px solid red";
+                document.getElementById("c" + (i + 2)).src = "image/1.png";
+                document.getElementById("c" + (i + 2)).alt = "fun_cat";
+                document.getElementById("c" + (i + 2)).style.border = "2px solid red";
+            }
+        }
+    }
+}
+
+// Тут функция будет выполнять то же действие что и takeCat только через цикл while
+
+var selectCatSecond = -1;
+
+function takeCatSecond() {
+    // Если кот выбран - сбросим значение.
+    if(selectCatSecond >= 0) {
+        selectCatSecond = -1;
+        findCat();
+    }
+    // Поиск веселых котов из всех
+    var i=0;
+    while (i < cats.length){
+        i++;
+        // Проверка веселости 3-х котов подряд
+        if (cats[i] && cats[i + 1] && cats[i + 2]) {
+            selectCat = i;
+            document.getElementById("c" + i).alt = "selected_cat";
+            document.getElementById("c" + i).style.border = "2px solid green";
+            document.getElementById("c" + (i + 1)).src = "image/2.png";
+            document.getElementById("c" + (i + 1)).alt = "selected_cat";
+            document.getElementById("c" + (i + 1)).style.border = "2px solid green";
+            document.getElementById("c" + (i + 2)).src = "image/2.png";
+            document.getElementById("c" + (i + 2)).alt = "selected_cat";
+            document.getElementById("c" + (i + 2)).style.border = "2px solid green";
+            // Предлагается клинту выбор, взять ли 3-х котов
+            var accept = confirm("Коты " + (i + 1) + "-" + (i + 3) + " - счастливы. Взять этих котов?");
+            // Если пользователь согласился, кот бронируется и цикл останавливается
+            if (accept){
+                break;
+            }
+            // Если пользователь отказался, меняем вид кота и продолжаем поиск
+            else {
+                selectCat = -1;
+                document.getElementById("c" + i).src = "image/1.png";
+                document.getElementById("c" + i).alt = "fun_cat";
+                document.getElementById("c" + i).style.border = "2px solid red";
+                document.getElementById("c" + (i + 1)).src = "image/1.png";
+                document.getElementById("c" + (i + 1)).alt = "fun_cat";
+                document.getElementById("c" + (i + 1)).style.border = "2px solid red";
+                document.getElementById("c" + (i + 2)).src = "image/1.png";
+                document.getElementById("c" + (i + 2)).alt = "fun_cat";
+                document.getElementById("c" + (i + 2)).style.border = "2px solid red";
             }
         }
     }
