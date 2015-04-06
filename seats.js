@@ -10,13 +10,13 @@ function findCat() {
             document.getElementById("c" + i).src = "image/1.png";
             document.getElementById("c" + i).alt = "fun_cat";
             document.getElementById("c" + i).style.border = "2px solid blue";
-            alert("Кот №" + i + " радуется!");
+            alert("Кот №" + (i + 1) + " радуется!");
         }
         else{
             document.getElementById("c" + i).src = "image/3.png";
             document.getElementById("c" + i).alt = "sad_cat";
             document.getElementById("c" + i).style.border = "2px solid blue";
-            alert("Кот №" + i + " грустит...");
+            alert("Кот №" + (i + 1) + " грустит...");
         }
     }
 }
@@ -36,13 +36,14 @@ function takeCat() {
             selectCat = i;
             document.getElementById("c" + i).alt = "selected_cat";
             document.getElementById("c" + i).style.border = "2px solid green";
+            document.getElementById("c" + i).src = "image/2.png";
             document.getElementById("c" + (i + 1)).src = "image/2.png";
             document.getElementById("c" + (i + 1)).alt = "selected_cat";
             document.getElementById("c" + (i + 1)).style.border = "2px solid green";
             document.getElementById("c" + (i + 2)).src = "image/2.png";
             document.getElementById("c" + (i + 2)).alt = "selected_cat";
             document.getElementById("c" + (i + 2)).style.border = "2px solid green";
-            // Предлагается клинту выбор, взять ли 3-х котов
+            // Предлагается клиенту выбор, взять ли 3-х котов
             var accept = confirm("Коты " + (i + 1) + "-" + (i + 3) + " - счастливы. Взять этих котов?");
             // Если пользователь согласился, кот бронируется и цикл останавливается
             if (accept){
@@ -84,13 +85,14 @@ function takeCatSecond() {
             selectCat = i;
             document.getElementById("c" + i).alt = "selected_cat";
             document.getElementById("c" + i).style.border = "2px solid green";
+            document.getElementById("c" + i).src = "image/2.png";
             document.getElementById("c" + (i + 1)).src = "image/2.png";
             document.getElementById("c" + (i + 1)).alt = "selected_cat";
             document.getElementById("c" + (i + 1)).style.border = "2px solid green";
             document.getElementById("c" + (i + 2)).src = "image/2.png";
             document.getElementById("c" + (i + 2)).alt = "selected_cat";
             document.getElementById("c" + (i + 2)).style.border = "2px solid green";
-            // Предлагается клинту выбор, взять ли 3-х котов
+            // Предлагается клиенту выбор, взять ли 3-х котов
             var accept = confirm("Коты " + (i + 1) + "-" + (i + 3) + " - счастливы. Взять этих котов?");
             // Если пользователь согласился, кот бронируется и цикл останавливается
             if (accept){
