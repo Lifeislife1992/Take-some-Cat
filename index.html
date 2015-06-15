@@ -5,7 +5,6 @@
     <title>Циклы, массивы</title>
     <link type="text/css" rel="stylesheet" href="main.css">
     <!-- <script type="application/javascript" src="main.js"></script> -->
-    <script type="application/javascript" src="seats.js"></script>
 </head>
 <body>
     <div class="cats">
@@ -54,10 +53,10 @@
         <img src="image/4.png" id="c39">
     </div>
     <div class="button">
-        <input type="button" id="takeCat" value="Выбрать группу из 3х счастливых котов (for)" onclick="takeCat()">
+        <input type="button" id="takeCat" value="Выбрать группу из 3х счастливых котов (for)">
     </div>
     <div class="button">
-        <input type="button" value="Выбрать группу из 3х счастливых котов (while)" onclick="takeCatSecond()">
+        <input type="button" id="takeCatSecond" value="Выбрать группу из 3х счастливых котов (while)">
     </div>
     <!-- Добавлено скрытый div, чтобы картинки при загрузке страницы появились в кэше.
     Иначе Хром и опера не отобразят картинки, пока вся функция не пройдет.
@@ -67,5 +66,6 @@
         <img src="image/selected_cat.png">
         <img src="image/sad_cat.png">
     </div>
+    <script type="application/javascript" src="seats.js"></script>
 </body>
 </html>
