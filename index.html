@@ -8,63 +8,53 @@
     <script type="application/javascript" src="seats.js"></script>
 </head>
 <body>
-    <div class="cats" onclick="findCat()">
-        <div class="row1">
-            <img src="image/4.png" id="c00" >
-            <img src="image/4.png" id="c01" >
-            <img src="image/4.png" id="c02" >
-            <img src="image/4.png" id="c03" >
-            <img src="image/4.png" id="c04" >
-            <img src="image/4.png" id="c05" >
-            <img src="image/4.png" id="c06" >
-            <img src="image/4.png" id="c07" >
-            <img src="image/4.png" id="c08" >
-            <img src="image/4.png" id="c09" >
-            <img src="image/4.png" id="c010" >
-            <img src="image/4.png" id="c011" >
-        </div>
-        <div class="row2">
-            <img src="image/4.png" id="c10" >
-            <img src="image/4.png" id="c11" >
-            <img src="image/4.png" id="c12" >
-            <img src="image/4.png" id="c13" >
-            <img src="image/4.png" id="c14" >
-            <img src="image/4.png" id="c15" >
-            <img src="image/4.png" id="c16" >
-            <img src="image/4.png" id="c17" >
-            <img src="image/4.png" id="c18" >
-            <img src="image/4.png" id="c19" >
-            <img src="image/4.png" id="c110" >
-            <img src="image/4.png" id="c111" >
-        </div>
-        <div class="row3">
-            <img src="image/4.png" id="c20" >
-            <img src="image/4.png" id="c21" >
-            <img src="image/4.png" id="c22" >
-            <img src="image/4.png" id="c23" >
-            <img src="image/4.png" id="c24" >
-            <img src="image/4.png" id="c25" >
-            <img src="image/4.png" id="c26" >
-            <img src="image/4.png" id="c27" >
-            <img src="image/4.png" id="c28" >
-            <img src="image/4.png" id="c29" >
-            <img src="image/4.png" id="c210" >
-            <img src="image/4.png" id="c211" >
-        </div>
-        <div class="row4">
-            <img src="image/4.png" id="c30" >
-            <img src="image/4.png" id="c31" >
-            <img src="image/4.png" id="c32" >
-            <img src="image/4.png" id="c33" >
-            <img src="image/4.png" id="c34" >
-            <img src="image/4.png" id="c35" >
-            <img src="image/4.png" id="c36" >
-            <img src="image/4.png" id="c37" >
-            <img src="image/4.png" id="c38" >
-            <img src="image/4.png" id="c39" >
-            <img src="image/4.png" id="c310" >
-            <img src="image/4.png" id="c311" >
-        </div>
+    <div class="button">
+        <input type="button" value="Проверить котов" onclick="findCat()">
+    </div>
+    <div class="cats">
+        <img src="image/4.png" id="c0" onclick="showCatStatus('0')">
+        <img src="image/4.png" id="c1" onclick="showCatStatus('1')">
+        <img src="image/4.png" id="c2" onclick="showCatStatus('2')">
+        <img src="image/4.png" id="c3" onclick="showCatStatus('3')">
+        <img src="image/4.png" id="c4" onclick="showCatStatus('4')">
+        <img src="image/4.png" id="c5" onclick="showCatStatus('5')">
+        <img src="image/4.png" id="c6" onclick="showCatStatus('6')">
+        <img src="image/4.png" id="c7" onclick="showCatStatus('7')">
+        <img src="image/4.png" id="c8" onclick="showCatStatus('8')">
+        <img src="image/4.png" id="c9" onclick="showCatStatus('9')">
+        <br>
+        <img src="image/4.png" id="c10" onclick="showCatStatus('10')">
+        <img src="image/4.png" id="c11" onclick="showCatStatus('11')">
+        <img src="image/4.png" id="c12" onclick="showCatStatus('12')">
+        <img src="image/4.png" id="c13" onclick="showCatStatus('13')">
+        <img src="image/4.png" id="c14" onclick="showCatStatus('14')">
+        <img src="image/4.png" id="c15" onclick="showCatStatus('15')">
+        <img src="image/4.png" id="c16" onclick="showCatStatus('16')">
+        <img src="image/4.png" id="c17" onclick="showCatStatus('17')">
+        <img src="image/4.png" id="c18" onclick="showCatStatus('18')">
+        <img src="image/4.png" id="c19" onclick="showCatStatus('19')">
+         <br>
+        <img src="image/4.png" id="c20" onclick="showCatStatus('20')">
+        <img src="image/4.png" id="c21" onclick="showCatStatus('21')">
+        <img src="image/4.png" id="c22" onclick="showCatStatus('22')">
+        <img src="image/4.png" id="c23" onclick="showCatStatus('23')">
+        <img src="image/4.png" id="c24" onclick="showCatStatus('24')">
+        <img src="image/4.png" id="c25" onclick="showCatStatus('25')">
+        <img src="image/4.png" id="c26" onclick="showCatStatus('26')">
+        <img src="image/4.png" id="c27" onclick="showCatStatus('27')">
+        <img src="image/4.png" id="c28" onclick="showCatStatus('28')">
+        <img src="image/4.png" id="c29" onclick="showCatStatus('29')">
+        <br>
+        <img src="image/4.png" id="c30" onclick="showCatStatus('30')">
+        <img src="image/4.png" id="c31" onclick="showCatStatus('31')">
+        <img src="image/4.png" id="c32" onclick="showCatStatus('32')">
+        <img src="image/4.png" id="c33" onclick="showCatStatus('33')">
+        <img src="image/4.png" id="c34" onclick="showCatStatus('34')">
+        <img src="image/4.png" id="c35" onclick="showCatStatus('35')">
+        <img src="image/4.png" id="c36" onclick="showCatStatus('36')">
+        <img src="image/4.png" id="c37" onclick="showCatStatus('37')">
+        <img src="image/4.png" id="c38" onclick="showCatStatus('38')">
+        <img src="image/4.png" id="c39" onclick="showCatStatus('39')">
     </div>
     <div class="button">
         <input type="button" value="Выбрать группу из 3х счастливых котов (for)" onclick="takeCat()">

@@ -5,12 +5,11 @@ body{
 }
 .cats{
     display: inline-block;
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .button{
+    margin-top: 20px;
     text-align: center;
-    margin-bottom: 5px;
 }
 img{
     display: block;

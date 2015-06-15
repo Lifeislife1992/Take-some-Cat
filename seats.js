@@ -4,44 +4,33 @@
 alert("Найдите 3-х подряд счастливых котов");
 
 var cats = [
-    [false, true, false, true, true, true, false, true, false, true, true, true],
-    [false, true, false, true, true, true, false, false, true, true, false, false],
-    [false, true, true, false, true, true, false, false, true, false, true, true],
-    [true, true, false, false, false, true, true, true, false, true, true, true]
+    [false, true, false, true, true, true, false, true, false, false],
+    [false, true, false, true, true, true, false, false, true, false],
+    [false, true, true, false, true, true, false, false, true, false],
+    [true, true, false, false, false, true, true, true, false, false]
 ];
+
+
 function catCodeLess(catNum, description, border){
-    document.getElementById(catNum).alt = description;
-    document.getElementById(catNum).src = "image/" + description + ".png";
-    document.getElementById(catNum).style.border = border;
+    document.getElementById("c" + catNum).alt = description;
+    document.getElementById("c" + catNum).src = "image/" + description + ".png";
+    document.getElementById("c" + catNum).style.border = border;
 }
+
+
 function findCat() {
     for( var i=0; i < cats.length; i++) {
         for( var j=0; j < cats[i].length; j++) {
             if (cats[i][j]){
-                catCodeLess(("c" + i + j), "fun_cat", "2px solid blue");
-
-                /*Старый код, сжатый функцией catCodeLess
-                document.getElementById("c" + i + j).src = "image/fun_cat.png";
-                document.getElementById("c" + i + j).alt = "fun_cat";
-                document.getElementById("c" + i + j).style.border = "2px solid blue";*/
-
-                alert("Кот в " + (i + 1) + " ряду, под номером " + (j + 1)
-                    + " - радуется!");
+                catCodeLess(i * cats[i].length + j, "fun_cat", "2px solid blue");
             }
             else{
-                catCodeLess(("c" + i + j), "sad_cat", "2px solid blue");
-
-                /*Старый код, сжатый функцией catCodeLess
-                document.getElementById("c" + i + j).src = "image/sad_cat.png";
-                document.getElementById("c" + i + j).alt = "sad_cat";
-                document.getElementById("c" + i + j).style.border = "2px solid blue";*/
-
-                alert("Кот в " + (i + 1) + " ряду, под номером " + (j + 1)
-                    + " - грустит...");
+                catCodeLess(i * cats[i].length + j, "sad_cat", "2px solid blue");
             }
         }
     }
 }
+
 
 var selectCat = -1;
 
@@ -56,25 +45,13 @@ function takeCat() {
         for ( var j=0; j < cats[i].length; j++) {
             // Проверка веселости 3-х котов подряд в одном ряду
             if (cats[i][j] && cats[i][j + 1] && cats[i][j + 2]) {
-                selectCat = i + j;
-                catCodeLess(("c" + i + j), "selected_cat", "2px solid green");
-                catCodeLess(("c" + i + (j + 1)), "selected_cat", "2px solid green");
-                catCodeLess(("c" + i + (j + 2)), "selected_cat", "2px solid green");
+                selectCat = i * cats[i].length + j;
+                catCodeLess((i * cats[i].length + j), "selected_cat", "2px solid green");
+                catCodeLess((i * cats[i].length + (j + 1)), "selected_cat", "2px solid green");
+                catCodeLess((i * cats[i].length + (j + 2)), "selected_cat", "2px solid green");
                 // Предлагается клиенту выбор, взять ли 3-х котов в ряду
 
-                /*Старый код, сжатый функцией catCodeLess
-                document.getElementById("c" + i + j).alt = "selected_cat";
-                document.getElementById("c" + i + j).style.border = "2px solid green";
-                document.getElementById("c" + i + j).src = "image/selected_cat.png";
-                document.getElementById("c" + i + (j + 1)).src = "image/selected_cat.png";
-                document.getElementById("c" + i + (j + 1)).alt = "selected_cat";
-                document.getElementById("c" + i + (j + 1)).style.border = "2px solid green";
-                document.getElementById("c" + i + (j + 2)).src = "image/selected_cat.png";
-                document.getElementById("c" + i + (j + 2)).alt = "selected_cat";
-                document.getElementById("c" + i + (j + 2)).style.border = "2px solid green";*/
-
-                var accept = confirm("Коты " + (j + 1) + "-" + (j + 3)
-                    + " в ряду " + (i + 1) +" - счастливы. Взять этих котов?");
+                var accept = confirm("Коты " + (j+1) + "-" + (j+3) + " в ряду " + (i+1) +" - счастливы. Взять этих котов?");
                 // Если пользователь согласился, кот бронируется и цикл останавливается
                 if (accept) {
                     finished = true;
@@ -83,25 +60,15 @@ function takeCat() {
                 // Если пользователь отказался, меняем вид кота и продолжаем поиск
                 else {
                     selectCat = -1;
-                    catCodeLess(("c" + i + j), "sad_cat", "2px solid red");
-                    catCodeLess(("c" + i + (j + 1)), "sad_cat", "2px solid red");
-                    catCodeLess(("c" + i + (j + 2)), "sad_cat", "2px solid red");
-
-                    /*Старый код, сжатый функцией catCodeLess
-                    document.getElementById("c" + i + j).src = "image/sad_cat.png";
-                    document.getElementById("c" + i + j).alt = "sad_cat";
-                    document.getElementById("c" + i + j).style.border = "2px solid red";
-                    document.getElementById("c" + i + (j + 1)).src = "image/sad_cat.png";
-                    document.getElementById("c" + i + (j + 1)).alt = "sad_cat";
-                    document.getElementById("c" + i + (j + 1)).style.border = "2px solid red";
-                    document.getElementById("c" + i + (j + 2)).src = "image/sad_cat.png";
-                    document.getElementById("c" + i + (j + 2)).alt = "sad_cat";
-                    document.getElementById("c" + i + (j + 2)).style.border = "2px solid red";*/
+                    catCodeLess((i * cats[i].length + j), "fun_cat", "2px solid red");
+                    catCodeLess((i * cats[i].length + (j + 1)), "fun_cat", "2px solid red");
+                    catCodeLess((i * cats[i].length + (j + 2)), "fun_cat", "2px solid red");
                 }
             }
         }
     }
 }
+
 
 // Тут функция будет выполнять то же действие что и takeCat только через цикл while
 
@@ -123,23 +90,12 @@ function takeCatSecond() {
             // Проверка веселости 3-х котов подряд в одном ряду
             if (cats[i][j] && cats[i][j + 1] && cats[i][j + 2]) {
                 selectCatSecond = i + j;
-                catCodeLess(("c" + i + j), "selected_cat", "2px solid green");
-                catCodeLess(("c" + i + (j + 1)), "selected_cat", "2px solid green");
-                catCodeLess(("c" + i + (j + 2)), "selected_cat", "2px solid green");
+                catCodeLess((i * cats[i].length  + j), "selected_cat", "2px solid green");
+                catCodeLess((i * cats[i].length + (j + 1)), "selected_cat", "2px solid green");
+                catCodeLess((i * cats[i].length + (j + 2)), "selected_cat", "2px solid green");
                 // Предлагается клиенту выбор, взять ли 3-х котов в ряду
 
-                /*Старый код, сжатый функцией catCodeLess
-                 document.getElementById("c" + i + j).alt = "selected_cat";
-                 document.getElementById("c" + i + j).style.border = "2px solid green";
-                 document.getElementById("c" + i + j).src = "image/selected_cat.png";
-                 document.getElementById("c" + i + (j + 1)).src = "image/selected_cat.png";
-                 document.getElementById("c" + i + (j + 1)).alt = "selected_cat";
-                 document.getElementById("c" + i + (j + 1)).style.border = "2px solid green";
-                 document.getElementById("c" + i + (j + 2)).src = "image/selected_cat.png";
-                 document.getElementById("c" + i + (j + 2)).alt = "selected_cat";
-                 document.getElementById("c" + i + (j + 2)).style.border = "2px solid green";*/
-
-                var accept = confirm("Коты " + (j + 1) + "-" + (j + 3)
+                var accept = confirm("Коты " + (j+1) + "-" + (j+3)
                     + " в ряду " + (i + 1) +" - счастливы. Взять этих котов?");
                 // Если пользователь согласился, кот бронируется и цикл останавливается
                 if (accept) {
@@ -149,24 +105,31 @@ function takeCatSecond() {
                 // Если пользователь отказался, меняем вид кота и продолжаем поиск
                 else {
                     selectCatSecond = -1;
-                    catCodeLess(("c" + i + j), "sad_cat", "2px solid red");
-                    catCodeLess(("c" + i + (j + 1)), "sad_cat", "2px solid red");
-                    catCodeLess(("c" + i + (j + 2)), "sad_cat", "2px solid red");
-
-                    /*Старый код, сжатый функцией catCodeLess
-                     document.getElementById("c" + i + j).src = "image/sad_cat.png";
-                     document.getElementById("c" + i + j).alt = "sad_cat";
-                     document.getElementById("c" + i + j).style.border = "2px solid red";
-                     document.getElementById("c" + i + (j + 1)).src = "image/sad_cat.png";
-                     document.getElementById("c" + i + (j + 1)).alt = "sad_cat";
-                     document.getElementById("c" + i + (j + 1)).style.border = "2px solid red";
-                     document.getElementById("c" + i + (j + 2)).src = "image/sad_cat.png";
-                     document.getElementById("c" + i + (j + 2)).alt = "sad_cat";
-                     document.getElementById("c" + i + (j + 2)).style.border = "2px solid red";*/
+                    catCodeLess((i * cats[i].length + j), "fun_cat", "2px solid red");
+                    catCodeLess((i * cats[i].length + (j + 1)), "fun_cat", "2px solid red");
+                    catCodeLess((i * cats[i].length + (j + 2)), "sad_cat", "2px solid red");
                 }
             }
             j++;
         }
         i++;
     }
+}
+
+
+function getCatStatus(catNum) {
+    if(selectCat != -1 &&
+        (catNum == selectCat || catNum == (selectCat + 1) || catNum == (selectCat + 2))) {
+        return "Ваш!";
+    }
+    else if(cats[Math.floor(catNum / cats[0].length)][catNum % cats[0].length]) {
+        return "Веселый!"
+    }
+    else
+        return "Грустит((("
+}
+
+
+function showCatStatus(catNum) {
+        alert("Этот кот - " + getCatStatus(catNum));
 }
